@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Age of Kingdoms</title>
+  <meta name="description" content="A medieval real-time strategy game in the spirit of Age of Empires II, playable in the browser.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M8 60V24h8v-8h8v8h16v-8h8v8h8v36z' fill='%23c9a54a' stroke='%233a2408' stroke-width='3'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="app">
+    <canvas id="game"></canvas>
+
+    <!-- In-game HUD -->
+    <div id="hud" class="hidden">
+      <div id="topbar">
+        <div class="res" id="res-wood" data-res="wood"><img alt=""><div><b>0</b><small></small></div></div>
+        <div class="res" id="res-food" data-res="food"><img alt=""><div><b>0</b><small></small></div></div>
+        <div class="res" id="res-gold" data-res="gold"><img alt=""><div><b>0</b><small></small></div></div>
+        <div class="res" id="res-stone" data-res="stone"><img alt=""><div><b>0</b><small></small></div></div>
+        <div class="res pop" id="res-pop"><img alt=""><div><b>0/0</b><small></small></div></div>
+        <div id="age-label">Dark Age</div>
+        <div class="spacer"></div>
+        <div id="clock">00:00</div>
+        <button class="tb" id="btn-speed" title="Game speed (+/-)">1.0×</button>
+        <button class="tb" id="btn-pause" title="Pause (P)">❚❚</button>
+        <button class="tb" id="btn-objectives" title="Objectives &amp; scores (O)">Scores</button>
+        <button class="tb" id="btn-menu" title="Menu (F10)">Menu</button>
+      </div>
+      <div id="messages"></div>
+      <div id="scores" class="hidden"></div>
+      <div id="banner" class="hidden"><div class="banner-inner"><div class="banner-title"></div><div class="banner-sub"></div></div></div>
+      <div id="wonder-timer" class="hidden"></div>
+      <div id="paused-label" class="hidden">Paused</div>
+      <div id="bottombar">
+        <div id="commands" class="panel"></div>
+        <div id="info" class="panel"></div>
+        <div id="minimap-wrap" class="panel">
+          <canvas id="minimap"></canvas>
+          <div id="mini-buttons">
+            <button id="btn-idle" title="Next idle villager (.)"><img alt=""><span>0</span></button>
+            <button id="btn-idle-mil" title="Next idle military unit (,)"><img alt=""><span>0</span></button>
+          </div>
+        </div>
+      </div>
+      <div id="tooltip" class="hidden"></div>
+    </div>
+
+    <!-- Main menu -->
+    <div id="menu-screen" class="screen">
+      <div class="menu-panel">
+        <div class="emblem"></div>
+        <h1>Age of Kingdoms</h1>
+        <div class="subtitle">A medieval real-time strategy</div>
+        <button class="big" id="btn-new">Single Player</button>
+        <button class="big" id="btn-howto">How to Play</button>
+        <button class="big" id="btn-options">Options</button>
+        <div class="menu-foot">Grow a settlement · Advance through four ages · Conquer your rival</div>
+      </div>
+    </div>
+
+    <!-- Game setup -->
+    <div id="setup-screen" class="screen hidden">
+      <div class="setup-panel">
+        <h2>New Game</h2>
+        <div class="setup-grid">
+          <label>Your name</label><input id="opt-name" value="Player" maxlength="16">
+          <label>Your color</label><select id="opt-color"></select>
+          <label>Map</label>
+          <select id="opt-map"><option value="arabia">Arabia — open land</option><option value="lakes">Lakes — central waters</option><option value="forest">Black Forest — dense woods</option></select>
+          <label>Map size</label>
+          <select id="opt-size"><option value="96">Tiny (96×96)</option><option value="120" selected>Small (120×120)</option><option value="144">Medium (144×144)</option></select>
+          <label>Opponents</label>
+          <select id="opt-opp"><option value="1" selected>1 computer rival</option><option value="2">2 computer rivals</option><option value="3">3 computer rivals</option></select>
+          <label>Difficulty</label>
+          <select id="opt-diff"><option value="easy">Easy — relaxed, late small attacks</option><option value="standard" selected>Standard — balanced</option><option value="hard">Hard — efficient and aggressive</option><option value="hardest">Hardest — hard + economic bonus</option></select>
+          <label>Teams</label>
+          <select id="opt-teams"><option value="ffa">Free for all</option><option value="allvsyou">Computers allied vs you</option></select>
+          <label>Starting age</label>
+          <select id="opt-age"><option value="0" selected>Dark Age</option><option value="1">Feudal Age</option><option value="2">Castle Age</option><option value="3">Imperial Age</option></select>
+          <label>Resources</label>
+          <select id="opt-res"><option value="standard" selected>Standard</option><option value="medium">Medium</option><option value="high">High</option></select>
+          <label>Visibility</label>
+          <select id="opt-reveal"><option value="normal" selected>Fog of war</option><option value="explored">Explored</option><option value="all">All visible</option></select>
+          <label>Game speed</label>
+          <select id="opt-speed"><option value="1">Slow (1.0×)</option><option value="1.5" selected>Normal (1.5×)</option><option value="2">Fast (2.0×)</option><option value="3">Very fast (3.0×)</option></select>
+          <label>Map seed</label><input id="opt-seed" placeholder="random">
+        </div>
+        <div class="setup-buttons">
+          <button class="big" id="btn-start">Start Game</button>
+          <button class="big secondary" id="btn-setup-back">Back</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- How to play -->
+    <div id="howto-screen" class="screen hidden">
+      <div class="doc-panel">
+        <h2>How to Play</h2>
+        <div class="doc-cols">
+          <div>
+            <h3>Goal</h3>
+            <p>Build an economy, advance from the <b>Dark Age</b> through the <b>Feudal</b> and <b>Castle</b> ages to the <b>Imperial Age</b>, raise an army and destroy every enemy unit and building. Alternatively, build a <b>Wonder</b> and defend it for 5 minutes.</p>
+            <h3>Economy</h3>
+            <p>Villagers gather <b>food</b> (sheep, deer, boar, berries, fish, farms), <b>wood</b>, <b>gold</b> and <b>stone</b> and carry it to a drop-off: the Town Center, a Mill (food), Lumber Camp (wood) or Mining Camp (gold, stone). Build Houses to raise your population limit. Keep your Town Center producing villagers!</p>
+            <h3>Ages</h3>
+            <p>Advance at the Town Center. Each age needs two buildings of the previous age (e.g. Barracks + Mill for the Feudal Age) and unlocks new units, buildings and technologies.</p>
+            <h3>Combat</h3>
+            <p>Spearmen beat cavalry · cavalry beat archers · archers beat infantry · skirmishers beat archers · rams and trebuchets destroy buildings · monks heal and convert. Research upgrades at the Blacksmith.</p>
+          </div>
+          <div>
+            <h3>Mouse</h3>
+            <table class="keys">
+              <tr><td>Left click / drag</td><td>Select units or buildings</td></tr>
+              <tr><td>Double click</td><td>Select all units of that type on screen</td></tr>
+              <tr><td>Right click</td><td>Move · gather · attack · build · garrison · set rally point</td></tr>
+              <tr><td>Shift + click</td><td>Add to selection · queue orders · place several buildings</td></tr>
+              <tr><td>Wheel / middle drag</td><td>Zoom / pan the map</td></tr>
+            </table>
+            <h3>Keyboard</h3>
+            <table class="keys">
+              <tr><td>Q W E R T / A S D F G / Z X C V B</td><td>Command grid hotkeys</td></tr>
+              <tr><td>Arrow keys / screen edge</td><td>Scroll</td></tr>
+              <tr><td>H</td><td>Select Town Center</td></tr>
+              <tr><td>. (period) / , (comma)</td><td>Next idle villager / idle soldier</td></tr>
+              <tr><td>Ctrl + 1–9, then 1–9</td><td>Create / recall control group</td></tr>
+              <tr><td>A then click</td><td>Attack-move (with military selected)</td></tr>
+              <tr><td>Space</td><td>Jump to last alert</td></tr>
+              <tr><td>Delete</td><td>Delete selected unit or building</td></tr>
+              <tr><td>P · + / −</td><td>Pause · change game speed</td></tr>
+              <tr><td>Esc</td><td>Cancel / deselect</td></tr>
+              <tr><td>H then Z</td><td>Ring the Town Bell (villagers take shelter) / all clear</td></tr>
+              <tr><td>O · F10 · M</td><td>Scores · game menu · mute music</td></tr>
+            </table>
+          </div>
+        </div>
+        <button class="big" id="btn-howto-back">Back</button>
+      </div>
+    </div>
+
+    <!-- Options -->
+    <div id="options-screen" class="screen hidden">
+      <div class="setup-panel narrow">
+        <h2>Options</h2>
+        <div class="setup-grid">
+          <label>Master volume</label><input type="range" id="vol-master" min="0" max="100" value="80">
+          <label>Sound effects</label><input type="range" id="vol-sfx" min="0" max="100" value="80">
+          <label>Music</label><input type="range" id="vol-music" min="0" max="100" value="45">
+          <label>Scroll speed</label><input type="range" id="scroll-speed" min="20" max="200" value="100">
+          <label>Edge scrolling</label><select id="edge-scroll"><option value="1" selected>On</option><option value="0">Off</option></select>
+          <label>Hints</label><select id="opt-hints"><option value="1" selected>Show tips</option><option value="0">Hide tips</option></select>
+        </div>
+        <div class="setup-buttons"><button class="big" id="btn-options-back">Done</button></div>
+      </div>
+    </div>
+
+    <!-- In-game menu -->
+    <div id="game-menu" class="screen hidden dim">
+      <div class="menu-panel small">
+        <h2>Game Menu</h2>
+        <button class="big" id="gm-resume">Resume</button>
+        <button class="big" id="gm-options">Options</button>
+        <button class="big" id="gm-howto">How to Play</button>
+        <button class="big" id="gm-restart">Restart</button>
+        <button class="big danger" id="gm-resign">Resign</button>
+        <button class="big secondary" id="gm-quit">Quit to Main Menu</button>
+      </div>
+    </div>
+
+    <!-- End of game -->
+    <div id="end-screen" class="screen hidden dim">
+      <div class="end-panel">
+        <div class="end-title">Victory</div>
+        <div class="end-sub"></div>
+        <canvas id="end-graph" width="720" height="200"></canvas>
+        <table class="stats"></table>
+        <div class="setup-buttons">
+          <button class="big" id="end-continue">Keep Watching</button>
+          <button class="big" id="end-again">Play Again</button>
+          <button class="big secondary" id="end-menu">Main Menu</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="loading" class="screen hidden"><div class="loading-inner"><div class="spinner"></div><div id="loading-text">Preparing the realm…</div></div></div>
+  </div>
+  <noscript><div style="position:fixed;inset:0;display:flex;align-items:center;justify-content:center;color:#f3e6c4;font:20px Georgia">Age of Kingdoms needs JavaScript to run.</div></noscript>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

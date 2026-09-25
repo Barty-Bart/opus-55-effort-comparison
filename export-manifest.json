@@ -1,0 +1,412 @@
+[
+  {
+    "file": "games/low/game.js",
+    "sha256": "cdad3e5034901e74f2cfbc6d3b215de8086f6346d33c36656ba43887f28980ab",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/low/index.html",
+    "sha256": "6d3c17bfd34ab861f4e9f4a8f84765d61ac7bd53e7cbc287f37a868b3fe91cc8",
+    "change": "Removed external font links; system font fallback."
+  },
+  {
+    "file": "games/low/style.css",
+    "sha256": "e10fe158eef216f48d7ce983c9e510352a6bff47c2350ddf5fe1b516fb624936",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/medium/index.html",
+    "sha256": "c432f30efbc9adc4ea2913fafb128e19436505f6ac72ecf0b16a9f2d329ee73c",
+    "change": "Removed external font links; system font fallback."
+  },
+  {
+    "file": "games/medium/style.css",
+    "sha256": "275d4702e81d18fa3329070d44ac05259d649f048ceba2bce9e8954c0315f2f6",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/medium/js/ai.js",
+    "sha256": "a4f6a78c2aa17297bdfda05790504752f696642692d6d9c1dbc9cdbf63aa2181",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/medium/js/util.js",
+    "sha256": "130cebd4fb9df811f79ef717ac48d5eeb3a1cb27115a77325dec62ea5782bf62",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/medium/js/game.js",
+    "sha256": "e51c02504f6f2819a04c6af21d0c6b6f39a484d1299dca79ce021903fc299a99",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/medium/js/ui.js",
+    "sha256": "b5c14e6e285affffb6a44c712a9d24cebc025130aaddcbd7d51e5bc546869774",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/medium/js/render.js",
+    "sha256": "0823e92ca78c9ef3c980a26b172b6f0bc31b86e23061dd1f3ef8abc9c5a1810a",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/medium/js/config.js",
+    "sha256": "cfacad03010d6876383a4f464fffef0dbb53f4b8c0461495867e5cfb9417500b",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/medium/js/main.js",
+    "sha256": "b2a4a8368b68627a003d166c5c4368bcc91fd1783f56aebe8d85ec810712a92e",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/medium/js/sprites.js",
+    "sha256": "f9ddff10cfc03e80134d810960aa17842eb9a1e03e2453111d6978fbe679ce7a",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/medium/js/audio.js",
+    "sha256": "08020734da1a77f70ea1309d87ed11d84f842f8a952ede7aea4f24d187cfb0c8",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/medium/js/path.js",
+    "sha256": "af9700c00109224764f04f9841d97251a77b830fd5a949e30db31245a6b69778",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/medium/js/map.js",
+    "sha256": "9b6e78933794a95d78a6af8291673763012bf90e0e1affd5cc98872fa1942bd9",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/high/index.html",
+    "sha256": "56aed0a23b5eff6ac4c95ca19ee0538fc96ebe7543134ebc0827ccc2ad9a4816",
+    "change": "Removed external font links; system font fallback."
+  },
+  {
+    "file": "games/high/style.css",
+    "sha256": "77783cb8636343c8e226fc952151f4a090065d0ca584180063a9fe6842ca3499",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/high/js/ai.js",
+    "sha256": "80916b7cf8d645b0a15b1b1b878cdd9e1043c19eefbab09131476d4063503cd2",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/high/js/util.js",
+    "sha256": "76d38620e2f1dfb05ea3ee0687697aea198404483a2bd97adfbcfa49d012024d",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/high/js/ui.js",
+    "sha256": "57470aaf8cf708f3669248bfda1d7ad648094d9a93b6bcfc2201ca1a3c7d26fc",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/high/js/render.js",
+    "sha256": "ccd147991628de35d961caacd9beae3eccfb3a9f655cf36e7faeb7756e1f248f",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/high/js/main.js",
+    "sha256": "3ec375f7f0ac0cb8f68f8aeb05560269986781d674def1fe3c5aab43cd248065",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/high/js/sprites.js",
+    "sha256": "7f586d7260f1c76176510ac5ac964980cda0f56e9a6d17add32936efe335f613",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/high/js/entities.js",
+    "sha256": "3d3aea0be5b2fea3f114f9bdd39d2b6df1012b85e0dee6d9f9b578fd0a4648b8",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/high/js/audio.js",
+    "sha256": "dfa25e32c7012f4445aceefd8cbfa073089c12715aa4aa159778938712ccac53",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/high/js/data.js",
+    "sha256": "69566cdb1f5ce8766e797981d3deb50948f82ef8e04237e120fedd6934dc4f04",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/high/js/path.js",
+    "sha256": "b5c9722d0fb6063b36c56f865387649de01298d1fc26e6b41def283e4121e5e7",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/high/js/map.js",
+    "sha256": "86dae5d04cc14f5db7fc7e35fdf35b013d5e251adc0d3ff399320973d94d0813",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/xhigh/index.html",
+    "sha256": "11bc69b947c696222a8aab46ff4fe2e683db36a5ea138e95e8bab2e619fe3b1b",
+    "change": "Removed external font links; system font fallback."
+  },
+  {
+    "file": "games/xhigh/css/style.css",
+    "sha256": "d106524a42965a628e5a1dd7bce800843f0ec01fc05c653cc7cb1ddc4f9c6ae1",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/xhigh/js/ai.js",
+    "sha256": "6288c3af14ad0debb038877bf364c3a63c4234aa9c321c3a41ab85bea1fecc18",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/xhigh/js/icons.js",
+    "sha256": "1c9d935bdab9cb48c4c965ee5886cc59be5d08900b0d079823069d7d06cff5d6",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/xhigh/js/util.js",
+    "sha256": "2d18f195d165b4296f84022a11ed7f03fa75dde950596a8809fbb0963319877b",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/xhigh/js/game.js",
+    "sha256": "4b5fe3f41478f998e271599f8a43cf2a8877da0a5f10383fa231237e551418f6",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/xhigh/js/ui.js",
+    "sha256": "202dfcdd13e84100bed19636c2a4312bfa2445e95fc60bf2fd3e8518ee268099",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/xhigh/js/render.js",
+    "sha256": "e69180a77aebfbf40254ff1db68142fa9f300f13027742024eb4b857a981d4f7",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/xhigh/js/config.js",
+    "sha256": "1269e71fb3abd480e0dad5ee03a2b99786e19a3c936c36d6da835854bbcc1e9f",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/xhigh/js/main.js",
+    "sha256": "52c8763a6e928e652ffbf8788ead97056399d3795b0ef7d490150cb349ef01d3",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/xhigh/js/entities.js",
+    "sha256": "5a43d662547b2b840f2b123a6debba2cb4bab69a7aaa752143bc07fc386daff7",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/xhigh/js/audio.js",
+    "sha256": "cb523c67f93f59a782a3ea1b2cb3863fe41099e14e6a7d78a63648e331624bbc",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/xhigh/js/pathfinding.js",
+    "sha256": "fe0080876f9b8f8a0549c3491ff8aefef00bb8a72cf0c0fe1e3731331bc136f6",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/xhigh/js/artUnits.js",
+    "sha256": "2d31e575de3452fc325ad5bff5d02f26b47f8d1c05810960971475d29ed710cb",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/xhigh/js/map.js",
+    "sha256": "018d689b21bc33a86ad3a502206c88cdf4c7f357af069bef2780f6b2a1525352",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/xhigh/js/art.js",
+    "sha256": "c95ef9c97acb808f28b1ee45830533bc5f4a99d05018a85df2a4e487d0e5e4aa",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/xhigh/js/input.js",
+    "sha256": "ccd15341929551c6e8707638e9e38e6574dcb77453034bf53c4b87095aa26d30",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/max/index.html",
+    "sha256": "8850d7cd77c7558b8a2dce17b85d33763b4c7269bd3bb036c0d3ef8aa4130d97",
+    "change": "Removed external font links; system font fallback."
+  },
+  {
+    "file": "games/max/css/style.css",
+    "sha256": "4c121fd09aa49055dfc224e6e403b8df43324b0f83ded6f9ddc4dafbcb3d1cde",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/max/js/main.js",
+    "sha256": "dbe6d369022f89978a38ee8ce66ba81ca8f8c107514a79ca16a6e93f35d9907c",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/max/js/ui/hud.js",
+    "sha256": "fa1329f69152f1a04561f0c61720666cbf4d19c416debbeca798f33d58121539",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/max/js/ui/input.js",
+    "sha256": "d2fd18e0353cfd74827d32733bcf507476108296b04d9319f82469bc9f4da223",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/max/js/core/ai.js",
+    "sha256": "0d9c880fae244a5494be34c79f8f072f200098c57a218bcea2deb7987371994a",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/max/js/core/rng.js",
+    "sha256": "dcb168cbe993e137baddaad9d0ee5d45b3557b12fd6b3113b90884ecb7a02852",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/max/js/core/building.js",
+    "sha256": "d6962593f4b953b863172ffa762ca42dee8ccf63a2648b6fb0bdf72aea13b79a",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/max/js/core/game.js",
+    "sha256": "e467d52a7fd4e7e4711a719afa0e7f8407c0239a7325594d375ad10d7b062a03",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/max/js/core/data.js",
+    "sha256": "001525f365099f472b3c14fa8a806589e2cafa5709a6fca390875ed1829a5055",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/max/js/core/path.js",
+    "sha256": "18a886dcba04d61259e2565abf08404b45467673974cd5fd2a3a1fb9e2e653d7",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/max/js/core/map.js",
+    "sha256": "20217d607efa7a2166e047b71e237a4e07644b0e44abbf5c0bc6f5c9f619081e",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/max/js/core/unit.js",
+    "sha256": "9f8ca38f38479c9f1907f55a2a2867d37a4da4bd637583e23216d0436327c89c",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/max/js/render/art_units.js",
+    "sha256": "6109d6810f70325e6c3e8cfc6c96469845fc307844ea23dc15e308ea358d0231",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/max/js/render/icons.js",
+    "sha256": "8090f20377742c9143e7f242b4fb0982fd5aeb71503a30f5eed60ea6fa4ea321",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/max/js/render/renderer.js",
+    "sha256": "de5ce5b52cb2e3104069c7dc0f7be4e22a7fdd61f8c753572c5382661cdf6ef5",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/max/js/render/draw3d.js",
+    "sha256": "037560725d4bdd4e7f78d1858b7e7b225aa577500435da402f8628d05109bd23",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/max/js/render/terrain.js",
+    "sha256": "95d3ab54bc62463a80f7fa86628ae64a5ae308acd00b8891cdab975dde39367b",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/max/js/render/effects.js",
+    "sha256": "d263aa641ae7aaf82f8de76731e59bc3522ad895dda4c31fdd5e19f3707f6943",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/max/js/render/art_buildings.js",
+    "sha256": "4445aec2357b937bd7c519dd8097d75a5287c1a50624f8340e85ac298f9292f5",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/max/js/render/art_nature.js",
+    "sha256": "db064f82b38657a75e27bdd3b0b324365b351da5a659ef752a1a82c2b3637268",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/max/js/render/sprites.js",
+    "sha256": "cec7ff3f7c784e6be2739e703b0fc597c2c62e5323d5c62b671ccec2d75e2377",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/max/js/render/textures.js",
+    "sha256": "5eaaf244367d8602f0d935753c053c340832c178bbcf008c171a5aac7a060de1",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/max/js/render/minimap.js",
+    "sha256": "b11865c159b17213eb5c6a3f9fea492d28970eec4b3fa8d3de4b3894367c3d11",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/max/js/audio/audio.js",
+    "sha256": "f15c27ea8cd8343d8dbe6121464917f619bad447cea70318869201f8696612a5",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/special/index.html",
+    "sha256": "242716f9f63c75c910b7c97560edae50c810a4927595258341ff400fb8e2d94a",
+    "change": "Removed external font links; system font fallback."
+  },
+  {
+    "file": "games/special/style.css",
+    "sha256": "70e0ceefebe80da1c7d42f1056e14c389b86fa2203f4594b6431bf9e5c230b6d",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/special/js/ai.js",
+    "sha256": "92064ec82fbef7dd967ea286537f59e7b17f4940ae9c6d0df896903112070ba5",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/special/js/ui.js",
+    "sha256": "985773972c370b14343cd6a1a4300dcaa299165e9ad96bec314218b6bec276b5",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/special/js/world.js",
+    "sha256": "f31e60bf14ff27dfc40b38bb7e27d9fd61e2eee352631a434865651159e867fb",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/special/js/render.js",
+    "sha256": "08dd531ce94f8123d8fb9734f6496ca6359505a7984bfe997a27563fb8e279ba",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/special/js/main.js",
+    "sha256": "9d6a4c77ea6bd0210e99aa96a6897ad288dc061884caf74409c1bb279c19806e",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/special/js/editor.js",
+    "sha256": "63a8cb97ea1ad4f39a16eafded6994448029b3ec78c9d05c26864c6feefdb89e",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/special/js/audio.js",
+    "sha256": "fe4cf56a9f7b58f52fe8a413c4d78cd9be1cc206a3a142c6754b4d75d4f4cd01",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/special/js/data.js",
+    "sha256": "8c4c4c8749ef3bcb46dbb275f4278b0a4dec9705b1b9b5b5a01f1dbc525b18ea",
+    "change": "Unchanged gameplay source."
+  },
+  {
+    "file": "games/special/js/map.js",
+    "sha256": "56493720b5d73bee9dd9a0f8818ebf084611d8c4f7642be245c57d4f699c662e",
+    "change": "Unchanged gameplay source."
+  }
+]

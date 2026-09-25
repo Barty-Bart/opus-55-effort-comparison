@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Age of Kingdoms</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="game"></canvas>
+
+<div id="top" class="panel">
+  <div class="res" title="Food"><span>🍖</span><b id="r-food">0</b></div>
+  <div class="res" title="Wood"><span>🪵</span><b id="r-wood">0</b></div>
+  <div class="res" title="Gold"><span>🪙</span><b id="r-gold">0</b></div>
+  <div class="res" title="Stone"><span>🪨</span><b id="r-stone">0</b></div>
+  <div class="res" title="Population"><span>👥</span><b id="r-pop">0/0</b></div>
+  <button id="idleBtn" title="Select idle villager (.)">💤 <b id="r-idle">0</b></button>
+  <div id="age">Dark Age</div>
+  <div class="spacer"></div>
+  <div id="enemyAge" title="Enemy age"></div>
+  <div id="clock">00:00</div>
+  <button id="speedBtn" title="Game speed">1×</button>
+  <button id="pauseBtn" title="Pause (P)">⏸</button>
+  <button id="helpBtn" title="Controls">?</button>
+</div>
+
+<div id="msgs"></div>
+
+<div id="bottom" class="panel">
+  <div id="miniWrap"><canvas id="mini" width="232" height="116"></canvas></div>
+  <div id="info"></div>
+  <div id="cmds"></div>
+</div>
+<div id="tip"></div>
+
+<div id="menu" class="overlay">
+  <div class="card">
+    <h1>Age of Kingdoms</h1>
+    <p class="sub">Grow your village. Advance through the ages. Crush the Red Kingdom.</p>
+    <div class="diff">
+      <button data-d="0">Easy</button>
+      <button data-d="1" class="on">Normal</button>
+      <button data-d="2">Hard</button>
+    </div>
+    <button id="startBtn" class="big">Begin Conquest</button>
+    <div class="howto">
+      <b>Left-click / drag</b> select &nbsp;·&nbsp; <b>Right-click</b> move, gather, build, attack<br>
+      <b>Arrows / screen edge</b> scroll &nbsp;·&nbsp; <b>Q-W-E-R-T / A-S-D-F-G / Z-X-C-V-B</b> command grid<br>
+      <b>H</b> Town Center &nbsp;·&nbsp; <b>.</b> idle villager &nbsp;·&nbsp; <b>Ctrl+1-9</b> groups &nbsp;·&nbsp; <b>Del</b> delete &nbsp;·&nbsp; <b>P</b> pause<br>
+      Destroy every enemy building and unit to win.
+    </div>
+  </div>
+</div>
+
+<div id="endScreen" class="overlay hidden">
+  <div class="card">
+    <h1 id="endTitle">Victory</h1>
+    <div id="endStats"></div>
+    <button class="big" onclick="location.reload()">Play Again</button>
+  </div>
+</div>
+
+<script src="game.js"></script>
+</body>
+</html>

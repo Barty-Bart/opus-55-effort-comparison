@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Age of Kingdoms</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Cpath d=%22M4 28V12l4-3v-5h4v5l4-3 4 3v-5h4v5l4 3v16z%22 fill=%22%23e6c36a%22/%3E%3C/svg%3E">
+</head>
+<body>
+<div id="game">
+  <canvas id="view"></canvas>
+
+  <div id="topbar" class="hidden">
+    <div class="res" id="r-food" data-tip="Food — gathered from sheep, berries, hunting and farms"><img class="ricon" data-r="food"><span>0</span><em></em></div>
+    <div class="res" id="r-wood" data-tip="Wood — chopped from trees"><img class="ricon" data-r="wood"><span>0</span><em></em></div>
+    <div class="res" id="r-gold" data-tip="Gold — mined from gold mines"><img class="ricon" data-r="gold"><span>0</span><em></em></div>
+    <div class="res" id="r-stone" data-tip="Stone — mined from stone quarries"><img class="ricon" data-r="stone"><span>0</span><em></em></div>
+    <div class="res" id="r-pop" data-tip="Population / housing. Build Houses to raise the limit (max 200)"><img class="ricon" data-r="pop"><span>0/0</span></div>
+    <div id="agebox"><span id="age-name">Dark Age</span><div id="age-prog"><div></div></div></div>
+    <div class="spacer"></div>
+    <div id="idle-vil" class="topbtn" data-tip="Select idle villager (.)">Idle: <b>0</b></div>
+    <div id="clock">00:00</div>
+    <div id="speed-btn" class="topbtn" data-tip="Game speed (+ / -)">Normal</div>
+    <div id="menu-btn" class="topbtn" data-tip="Menu (F10 / Esc)">Menu</div>
+  </div>
+
+  <div id="messages"></div>
+  <div id="center-msg"></div>
+  <div id="wonder-timer" class="hidden"></div>
+
+  <div id="bottom" class="hidden">
+    <div id="minimap-wrap"><canvas id="minimap" width="240" height="124"></canvas>
+      <div id="mm-buttons"></div>
+    </div>
+    <div id="info"></div>
+    <div id="commands"></div>
+  </div>
+
+  <div id="tooltip" class="hidden"></div>
+
+  <!-- Main menu -->
+  <div id="mainmenu" class="screen">
+    <div class="menu-bg"></div>
+    <div class="menu-panel">
+      <h1>Age of Kingdoms</h1>
+      <div class="subtitle">A medieval real-time strategy game</div>
+      <div class="menu-row">
+        <label>Your civilization</label>
+        <div class="opts" id="opt-civ"></div>
+        <div class="civ-desc" id="civ-desc"></div>
+      </div>
+      <div class="menu-row">
+        <label>Opponent difficulty</label>
+        <div class="opts" id="opt-diff">
+          <button data-v="easy">Easy</button><button data-v="normal" class="sel">Standard</button><button data-v="hard">Hard</button>
+        </div>
+      </div>
+      <div class="menu-row">
+        <label>Map</label>
+        <div class="opts" id="opt-map">
+          <button data-v="arabia" class="sel">Highlands</button><button data-v="lakes">Lakes</button><button data-v="forest">Black Forest</button>
+        </div>
+      </div>
+      <button id="start-btn" class="big">Start Game</button>
+      <button id="help-btn" class="link">How to play</button>
+    </div>
+  </div>
+
+  <div id="helpscreen" class="screen hidden">
+    <div class="menu-panel wide">
+      <h2>How to Play</h2>
+      <div class="help-cols">
+        <div>
+          <h3>Goal</h3>
+          <p>Destroy every enemy unit and building — or build a <b>Wonder</b> in the Imperial Age and defend it until its timer runs out.</p>
+          <h3>Economy</h3>
+          <p>Villagers gather <b>food</b> (sheep, berries, deer, farms), <b>wood</b>, <b>gold</b> and <b>stone</b>. Build a Lumber Camp, Mining Camp or Mill next to resources so villagers walk less. Build Houses to raise your population limit.</p>
+          <h3>Ages</h3>
+          <p>Advance at the Town Center: Dark → Feudal → Castle → Imperial. Each age needs two buildings from the previous age and unlocks new units, buildings and technologies.</p>
+        </div>
+        <div>
+          <h3>Mouse</h3>
+          <p><b>Left click / drag</b> select · <b>Double click</b> select all of a type · <b>Right click</b> move, gather, build, attack, set rally point · <b>Wheel</b> zoom · <b>Middle drag</b> pan</p>
+          <h3>Keyboard</h3>
+          <p><b>Arrows</b> or screen edge — scroll<br><b>Q W E R T / A S D F G / Z X C V B</b> — command buttons<br><b>H</b> Town Center · <b>.</b> idle villager · <b>,</b> idle military<br><b>Ctrl+1–9</b> make group · <b>1–9</b> select group<br><b>Space</b> centre on selection · <b>Del</b> delete<br><b>Shift</b> queue buildings / add to selection · <b>Alt+right-click</b> garrison<br><b>+ / −</b> game speed · <b>P</b> pause · <b>Esc</b> cancel / menu</p>
+          <h3>Tips</h3>
+          <p>Spearmen beat cavalry, archers beat spearmen, skirmishers beat archers, cavalry beat archers, rams destroy buildings. Ring the <b>Town Bell</b> to garrison villagers and fire extra arrows.</p>
+        </div>
+      </div>
+      <button id="help-close" class="big">Back</button>
+    </div>
+  </div>
+
+  <div id="pausemenu" class="screen hidden">
+    <div class="menu-panel">
+      <h2>Game Paused</h2>
+      <button id="resume-btn" class="big">Resume</button>
+      <button id="restart-btn" class="big">Restart</button>
+      <button id="quit-btn" class="big">Quit to Main Menu</button>
+      <button id="help-btn2" class="link">How to play</button>
+    </div>
+  </div>
+
+  <div id="endscreen" class="screen hidden">
+    <div class="menu-panel wide">
+      <h1 id="end-title">Victory</h1>
+      <div class="subtitle" id="end-sub"></div>
+      <table id="end-stats"></table>
+      <button id="end-continue" class="big">Keep Watching</button>
+      <button id="end-menu" class="big">Main Menu</button>
+    </div>
+  </div>
+
+  <div id="loading" class="screen hidden"><div class="menu-panel"><h2>Generating world…</h2></div></div>
+</div>
+
+<script src="js/util.js"></script>
+<script src="js/data.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/map.js"></script>
+<script src="js/path.js"></script>
+<script src="js/sprites.js"></script>
+<script src="js/entities.js"></script>
+<script src="js/ai.js"></script>
+<script src="js/render.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

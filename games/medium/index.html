@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Age of Kingdoms</title>
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚜</text></svg>">
+</head>
+<body>
+<canvas id="game"></canvas>
+
+<div id="hud" class="hidden">
+  <div id="topbar">
+    <div class="res" data-res="food" title="Food"><img class="ri"><b id="r-food">0</b><span class="vc" id="v-food"></span></div>
+    <div class="res" data-res="wood" title="Wood"><img class="ri"><b id="r-wood">0</b><span class="vc" id="v-wood"></span></div>
+    <div class="res" data-res="gold" title="Gold"><img class="ri"><b id="r-gold">0</b><span class="vc" id="v-gold"></span></div>
+    <div class="res" data-res="stone" title="Stone"><img class="ri"><b id="r-stone">0</b><span class="vc" id="v-stone"></span></div>
+    <div class="res" data-res="pop" title="Population"><img class="ri"><b id="r-pop">0/0</b></div>
+    <div id="age-box"><span id="age-num">I</span><span id="age-name">Dark Age</span><div id="age-prog"><div></div></div></div>
+    <div class="spacer"></div>
+    <button id="btn-idle" class="tb-btn" title="Next idle villager (.)"><span id="idle-count">0</span> idle</button>
+    <div id="clock">00:00</div>
+    <button id="btn-speed" class="tb-btn" title="Game speed">1.5×</button>
+    <button id="btn-pause" class="tb-btn" title="Pause (P)">❚❚</button>
+    <button id="btn-menu" class="tb-btn" title="Menu (F10)">Menu</button>
+  </div>
+  <div id="messages"></div>
+  <div id="bottombar">
+    <div id="mm-wrap"><canvas id="minimap"></canvas></div>
+    <div id="info"></div>
+    <div id="commands"></div>
+  </div>
+  <div id="tooltip" class="hidden"></div>
+  <div id="paused" class="hidden">PAUSED<small>Press P to resume</small></div>
+  <div id="age-banner" class="hidden"></div>
+</div>
+
+<div id="title" class="screen">
+  <div class="title-inner">
+    <div class="crest">⚜</div>
+    <h1>Age of Kingdoms</h1>
+    <p class="sub">Grow a settlement. Advance through the ages. Crush your rival.</p>
+    <div class="panel">
+      <div class="row"><label>Difficulty</label>
+        <div class="seg" id="opt-diff"><button data-v="easy">Easy</button><button data-v="standard" class="on">Standard</button><button data-v="hard">Hard</button></div>
+      </div>
+      <div class="row"><label>Game speed</label>
+        <div class="seg" id="opt-speed"><button data-v="1">Slow</button><button data-v="1.5" class="on">Normal</button><button data-v="2">Fast</button></div>
+      </div>
+      <div class="row"><label>Map seed</label><input id="opt-seed" type="text" maxlength="9"><button id="btn-reseed" class="small">🎲</button></div>
+      <button id="btn-start" class="big">Start Game</button>
+      <button id="btn-howto" class="link">How to play</button>
+    </div>
+  </div>
+</div>
+
+<div id="howto" class="screen hidden">
+  <div class="panel wide">
+    <h2>How to Play</h2>
+    <div class="cols">
+      <div>
+        <h3>Goal</h3>
+        <p>Destroy the enemy's Town Centers, Castles, villagers and army. Lose yours and you are defeated.</p>
+        <h3>Economy</h3>
+        <p>Villagers gather <b>food</b> (sheep, berries, deer, farms), <b>wood</b>, <b>gold</b> and <b>stone</b>. Build Lumber Camps, Mining Camps and Mills close to resources to cut walking time. Houses raise your population limit.</p>
+        <h3>Ages</h3>
+        <p>Research the next Age at the Town Center to unlock buildings, units and technologies: Dark → Feudal → Castle → Imperial.</p>
+        <h3>Army</h3>
+        <p>Spearmen beat cavalry, skirmishers beat archers, archers beat infantry, knights crush archers. Rams demolish buildings. Research Blacksmith upgrades!</p>
+      </div>
+      <div>
+        <h3>Mouse</h3>
+        <ul>
+          <li><b>Left click / drag</b> — select</li>
+          <li><b>Double click</b> — select all of that type on screen</li>
+          <li><b>Right click</b> — move, gather, build, attack, set rally point</li>
+          <li><b>Wheel</b> — zoom · <b>Middle drag</b> — pan</li>
+        </ul>
+        <h3>Keyboard</h3>
+        <ul>
+          <li><b>Arrows</b> / screen edge — scroll camera</li>
+          <li><b>Q W E R T / A S D F G / Z X C V B</b> — command grid</li>
+          <li><b>H</b> — Town Center · <b>.</b> — idle villager · <b>,</b> — idle army</li>
+          <li><b>Ctrl+1…9</b> set group · <b>1…9</b> recall group</li>
+          <li><b>Shift</b> — add to selection / queue ×5 / keep placing</li>
+          <li><b>Del</b> — delete · <b>P</b> — pause · <b>Space</b> — jump to alert · <b>Esc</b> — cancel / menu</li>
+        </ul>
+      </div>
+    </div>
+    <button id="btn-howto-close" class="big">Got it</button>
+  </div>
+</div>
+
+<div id="menu" class="screen hidden">
+  <div class="panel">
+    <h2>Menu</h2>
+    <button id="m-resume" class="big">Resume</button>
+    <button id="m-howto" class="big">How to play</button>
+    <div class="row"><label>Music</label><div class="seg" id="opt-music"><button data-v="1" class="on">On</button><button data-v="0">Off</button></div></div>
+    <div class="row"><label>Sound</label><input id="opt-sfx" type="range" min="0" max="1" step="0.05" value="0.5"></div>
+    <button id="m-resign" class="big danger">Resign</button>
+    <button id="m-quit" class="big">Quit to Title</button>
+  </div>
+</div>
+
+<div id="end" class="screen hidden">
+  <div class="panel wide">
+    <h1 id="end-title">Victory!</h1>
+    <p id="end-sub"></p>
+    <table id="end-stats"></table>
+    <div class="btnrow">
+      <button id="e-again" class="big">Play Again</button>
+      <button id="e-watch" class="big">Keep Watching</button>
+      <button id="e-title" class="big">Main Menu</button>
+    </div>
+  </div>
+</div>
+
+<div id="loading" class="screen hidden"><div class="loading-text">Forging the realm…</div></div>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

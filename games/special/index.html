@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Age of Realms — Medieval RTS</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="game"></canvas>
+<div id="menu" class="screen">
+  <div class="menu-box panel">
+    <h1 class="title">Age of Realms</h1>
+    <div class="subtitle">A medieval real-time strategy game</div>
+    <button class="btn big" id="btn-sp">⚔ Single Player</button>
+    <button class="btn big" id="btn-editor">🗺 Map Editor</button>
+    <button class="btn big" id="btn-help">📜 How to Play</button>
+    <button class="btn big" id="btn-audio">🔊 Audio Settings</button>
+    <div class="small dim">Click anywhere to enable sound. Built with procedural art, synthesized music and your system's speech voices.</div>
+  </div>
+</div>
+<div id="setup" class="screen hidden"></div>
+<div id="hud" class="screen hidden"></div>
+<div id="editor" class="screen hidden"></div>
+<div id="tooltip" class="hidden"></div>
+<div id="modal" class="hidden"></div>
+<script src="js/data.js"></script>
+<script src="js/map.js"></script>
+<script src="js/world.js"></script>
+<script src="js/render.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/ai.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/editor.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

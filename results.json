@@ -1,0 +1,80 @@
+[
+  {
+    "effort": "Low",
+    "cost": 3.79,
+    "input": 550,
+    "output": 107700,
+    "cache_read": 2900000,
+    "cache_write": 132700,
+    "total_tokens": 3140950,
+    "elapsed": "19m 10s",
+    "api_time": "16m 03s",
+    "status": "Complete",
+    "play": "games/low/"
+  },
+  {
+    "effort": "Medium",
+    "cost": 9.25,
+    "input": 602,
+    "output": 239900,
+    "cache_read": 10600000,
+    "cache_write": 290700,
+    "total_tokens": 11131202,
+    "elapsed": "36m 35s",
+    "api_time": "34m 02s",
+    "status": "Complete",
+    "play": "games/medium/"
+  },
+  {
+    "effort": "High",
+    "cost": 16.11,
+    "input": 690,
+    "output": 335000,
+    "cache_read": 29900000,
+    "cache_write": 429500,
+    "total_tokens": 30665190,
+    "elapsed": "1h 00m 33s",
+    "api_time": "53m 47s",
+    "status": "Complete",
+    "play": "games/high/"
+  },
+  {
+    "effort": "X High",
+    "cost": 35.26,
+    "input": 54200,
+    "output": 638200,
+    "cache_read": 78000000,
+    "cache_write": 930700,
+    "total_tokens": 79623100,
+    "elapsed": "1h 45m 51s",
+    "api_time": "1h 39m 19s",
+    "status": "Complete",
+    "play": "games/xhigh/"
+  },
+  {
+    "effort": "Max",
+    "cost": 69.14,
+    "input": 41000,
+    "output": 997200,
+    "cache_read": 169900000,
+    "cache_write": 2400000,
+    "total_tokens": 173338200,
+    "elapsed": "2h 58m 27s",
+    "api_time": "2h 43m 26s",
+    "status": "Complete",
+    "play": "games/max/"
+  },
+  {
+    "effort": "Special Build (Low)",
+    "cost": 13.57,
+    "input": 636,
+    "output": 322900,
+    "cache_read": 20300000,
+    "cache_write": 381900,
+    "total_tokens": 21005436,
+    "elapsed": "1h 23m 06s",
+    "api_time": "46m 10s",
+    "status": "Complete",
+    "play": "games/special/"
+  }
+]
